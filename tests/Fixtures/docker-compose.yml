@@ -1,0 +1,8 @@
+version: "3.6"
+
+services:
+  app:
+    image: ubuntu:16.04
+
+  web:
+    image: nginx

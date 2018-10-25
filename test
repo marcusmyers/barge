@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+$autoloader = require file_exists(__DIR__.'/vendor/autoload.php') ?  __DIR__.'/vendor/autoload.php' : __DIR__.'/../../autoload.php';
+
+use Docker\API\Model\ContainersCreatePostBody;
+use Docker\Docker;
+
+$docker = Docker::create();
+
+$containerConfig = new ContainersCreatePostBody();
+$containerConfig->setImage('busybox:latest');
+$containerConfig->setCmd(['echo', 'I am running a command']);
+
+$containerCreateResult = $docker->containerCreate($containerConfig);
+
+// $containers = $docker->containerList();
+
+// foreach ($containers as $container) {
+    // var_dump($container->getNames());
+// }
