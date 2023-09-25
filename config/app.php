@@ -12,6 +12,7 @@ return [
     | any other location as required by the application or its packages.
     |
     */
+
     'name' => 'Barge',
 
     /*
@@ -24,6 +25,7 @@ return [
     | number MAJOR.MINOR.PATCH when an update happens: https://semver.org.
     |
     */
+
     'version' => app('git.version'),
 
     /*
@@ -33,10 +35,25 @@ return [
     |
     | This value determines the "environment" your application is currently
     | running in. This may determine how you prefer to configure various
-    | services your application utilizes. Should be true in production.
+    | services the application utilizes. This can be overridden using
+    | the global command line "--env" option when calling commands.
     |
     */
-    'production' => false,
+
+    'env' => 'development',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Timezone
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the default timezone for your application, which
+    | will be used by the PHP date and date-time functions. We have gone
+    | ahead and set this to a sensible default for you out of the box.
+    |
+    */
+
+    'timezone' => 'UTC',
 
     /*
     |--------------------------------------------------------------------------
@@ -48,6 +65,7 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
+
     'providers' => [
         App\Providers\AppServiceProvider::class,
     ],
